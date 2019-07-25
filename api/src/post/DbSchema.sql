@@ -1,0 +1,5 @@
+CREATE TABLE Posts
+(
+    Id SERIAL NOT NULL PRIMARY KEY,
+    dataJson json NOT NULL
+)
