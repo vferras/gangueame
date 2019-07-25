@@ -1,7 +1,7 @@
 using System;
 using MediatR;
 
-namespace gangueame.api
+namespace Gangueame.Api
 {
     public class PostsCommand : IRequest<bool>
     {

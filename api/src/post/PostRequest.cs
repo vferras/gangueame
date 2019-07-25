@@ -1,6 +1,6 @@
 using System;
 
-namespace gangueame.api
+namespace Gangueame.Api
 {
     public class PostRequest
     {

@@ -6,8 +6,9 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using MediatR;
+using Gangueame.Eventstore;
 
-namespace gangueame
+namespace Gangueame.Api
 {
     public class Startup
     {
@@ -28,6 +29,7 @@ namespace gangueame
                 });
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddScoped<IEventStore, MartenEventStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

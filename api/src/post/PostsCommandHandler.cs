@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace gangueame.api
+namespace Gangueame.Api
 {
     public class PostsCommandHandler : IRequest<bool>
     {

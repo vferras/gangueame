@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace gangueame.api
+namespace Gangueame.Api
 {
     [ApiController]
     public class PostsController : Controller
