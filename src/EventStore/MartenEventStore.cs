@@ -5,27 +5,20 @@ namespace Gangueame.Eventstore
 {
     public class MartenEventStore : IEventStore
     {
-        private readonly DocumentStore _store;
+        private readonly IDocumentStore _store;
 
-        public MartenEventStore()
+        public MartenEventStore(IDocumentStore store)
         {
-            _store = DocumentStore.For(_ =>
-            {
-                _.Connection("host=localhost;database=gangueame;password=;username=");
-            });
+            _store = store;
         }
 
         public Task AppendEvents<TAggregate>(string streamId, params object[] events)
         {
-            Task task;
-
             using (var session = _store.OpenSession())
             {
                 session.Events.Append(streamId, events);
-                task = session.SaveChangesAsync();
+                return session.SaveChangesAsync();
             }
-
-            return task;
         }
     }
 }

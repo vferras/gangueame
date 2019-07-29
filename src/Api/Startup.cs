@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using MediatR;
 using Gangueame.Eventstore;
+using Marten;
 
 namespace Gangueame.Api
 {
@@ -30,6 +31,12 @@ namespace Gangueame.Api
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddScoped<IEventStore, MartenEventStore>();
+            var store = DocumentStore.For(_ =>
+            {
+                _.Connection("host=localhost;database=gangueame;password=;username=");
+                _.Events.AddEventType(typeof(PostCreated));
+            });
+            services.AddSingleton<IDocumentStore>(store);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

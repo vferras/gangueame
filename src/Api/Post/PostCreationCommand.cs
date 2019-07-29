@@ -3,9 +3,9 @@ using MediatR;
 
 namespace Gangueame.Api
 {
-    public class PostsCommand : IRequest<bool>
+    public class PostCreationCommand : IRequest<bool>
     {
-        private PostsCommand(string body, string title, DateTime publishedAt, string publishedBy, byte[] image)
+        private PostCreationCommand(string body, string title, DateTime publishedAt, string publishedBy, byte[] image)
         {
             Body = body;
             Title = title;
@@ -20,9 +20,9 @@ namespace Gangueame.Api
         public string PublishedBy { get; }
         public byte[] Image { get; }
 
-        public static PostsCommand Of(string body, string title, DateTime publishedAt, string publishedBy, byte[] image)
+        public static PostCreationCommand Of(string body, string title, DateTime publishedAt, string publishedBy, byte[] image)
         {
-            return new PostsCommand(body, title, publishedAt, publishedBy, image);
+            return new PostCreationCommand(body, title, publishedAt, publishedBy, image);
         }
     }
 }

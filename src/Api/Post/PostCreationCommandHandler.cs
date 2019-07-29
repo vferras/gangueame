@@ -4,9 +4,9 @@ using MediatR;
 
 namespace Gangueame.Api
 {
-    public class PostsCommandHandler : IRequest<bool>
+    public class PostCreationCommandHandler : IRequest<bool>
     {
-        public Task<bool> Handle(PostsCommand command, CancellationToken cancellationToken)
+        public Task<bool> Handle(PostCreationCommand command, CancellationToken cancellationToken)
         {
             return Task.FromResult(true);
         }

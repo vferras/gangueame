@@ -16,7 +16,7 @@ namespace Gangueame.Api
         [HttpPost("posts")]
         public IActionResult CreateNewPost(PostRequest request)
         {
-            _mediator.Send(PostsCommand.Of(request.Body, request.Title, request.PublishedAt, request.PublishedBy, request.Image));
+            _mediator.Send(PostCreationCommand.Of(request.Body, request.Title, request.PublishedAt, request.PublishedBy, request.Image));
 
             return Ok();
         }
